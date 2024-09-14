@@ -5,7 +5,7 @@ File:
 Author:
   Gabriel Field (uqgfiel1)
 
-Adjacency list graph
+Adjacency list graph implementation. Only bare-bones functionality, but that's exactly what a graph is.
 """
 
 ## SECTION: Imports
@@ -103,9 +103,3 @@ class Graph:
                       --> `target` in this graph
     """
     return self._seen_by.get(source)
-
-
-
-## SECTION: Implement this:
-
-# I'll let you know on Monday ;)
