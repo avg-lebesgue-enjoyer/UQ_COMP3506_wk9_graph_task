@@ -79,25 +79,28 @@ class TestData:
     self.vertices_0 = []
     self.matrix_0 = []
     self.vertices_1 = [10]
-    self.matrix_1 = [[]]
+    self.matrix_1 = [[False]]
     self.vertices_2 = [10, 20]
-    self.matrix_2 = [[1], []]
+    self.matrix_2 = [
+      [False, True ], 
+      [False, False]
+    ]
     self.vertices_3 = [10, 20, 30]
     self.matrix_3 = [
-      [20, 30],
-      [],
-      []
+      [False, True , True ],
+      [False, False, False],
+      [False, False, False]
     ]
     self.vertices_4 = [10, 20]
     self.matrix_4 = [
-      [],
-      []
+      [False, False],
+      [False, False]
     ]
     self.vertices_5 = [10, 20, 30]
     self.matrix_5 = [
-      [30],
-      [30],
-      []
+      [False, False, True ],
+      [False, False, True ],
+      [False, False, False]
     ]
     self.verticess = [self.vertices_0, self.vertices_1, self.vertices_2, self.vertices_3, self.vertices_4, self.vertices_5]
     self.matrices =  [self.matrix_0,   self.matrix_1,   self.matrix_2,   self.matrix_3,   self.matrix_4,   self.matrix_5  ]
@@ -109,10 +112,11 @@ class TestData:
 def run_tests():
   test_data = TestData()
   for i in range(len(test_data.verticess)):
+    gamer = Graph.make_from(test_data.verticess[i], test_data.matrices[i]) 
     test_graph(
       i,
-      Graph.make_from(test_data.verticess[i], test_data.matrices[i]),
-      Graph.make_from(test_data.verticess[i], test_data.matrices[i])
+      gamer,
+      gamer
     )
   print("<?> ALL TESTS PASSED :)")
   return

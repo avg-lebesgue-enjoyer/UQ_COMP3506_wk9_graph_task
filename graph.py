@@ -74,11 +74,13 @@ class Graph:
     """
     return_me = Graph()
     the_vertices = [Vertex(datum) for datum in vertex_data]
+    return_me._vertices = the_vertices
     for vertex in the_vertices:
       return_me._seen_by[vertex] = []
     for i in range(len(adjacency_matrix)):
       for j in range(len(adjacency_matrix)):
-        return_me._seen_by[the_vertices[i]].append(the_vertices[j])
+        if adjacency_matrix[i][j]:
+          return_me._seen_by[the_vertices[i]].append(the_vertices[j])
     return return_me
 
   def get_vertices(self) -> List[Vertex]:
